@@ -1,0 +1,203 @@
+.app {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px 16px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #1a1a2e;
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.app-header h1 {
+  font-size: 1.4rem;
+  margin: 0;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.demo-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  user-select: none;
+}
+.question-counter {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.question-card {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.06);
+}
+
+.question-stem {
+  margin-bottom: 20px;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  max-height: 300px;
+  overflow-y: auto;
+}
+.question-stem .tiptap-readonly { outline: none; }
+
+/* answer options */
+.answer-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+.answer-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  background: #fafafa;
+  cursor: pointer;
+  transition: border-color .15s, background .15s;
+  text-align: left;
+  font-size: 1rem;
+  width: 100%;
+}
+.answer-option:hover:not(:disabled) {
+  border-color: #4a90d9;
+  background: #f0f7ff;
+}
+.answer-option.selected {
+  border-color: #4a90d9;
+  background: #e8f1fc;
+}
+.answer-option.checked { cursor: default; }
+.answer-option.correct {
+  border-color: #27ae60;
+  background: #eafaf1;
+}
+.answer-option.incorrect {
+  border-color: #e74c3c;
+  background: #fdf0ef;
+}
+.answer-option:disabled {
+  cursor: default;
+  opacity: 0.85;
+}
+
+.option-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: #e0e0e0;
+  font-weight: 600;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+.answer-option.selected .option-label { background: #4a90d9; color: #fff; }
+.answer-option.correct .option-label  { background: #27ae60; color: #fff; }
+.answer-option.incorrect .option-label { background: #e74c3c; color: #fff; }
+
+.option-content { flex: 1; }
+.option-content .tiptap-readonly { outline: none; }
+.option-content .tiptap-readonly p { margin: 0; }
+
+/* action bar + buttons */
+.action-bar { margin-bottom: 16px; }
+
+.btn {
+  padding: 10px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background .15s;
+}
+.btn:disabled { opacity: .5; cursor: not-allowed; }
+
+.btn-check { background: #4a90d9; color: #fff; }
+.btn-check:hover:not(:disabled) { background: #3a7bc8; }
+
+.btn-next { background: #6c5ce7; color: #fff; margin-left: 12px; }
+.btn-next:hover { background: #5a4bd6; }
+
+.check-result { display: flex; align-items: center; gap: 8px; }
+
+.result-badge {
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 6px;
+}
+.result-badge.correct   { color: #27ae60; background: #eafaf1; }
+.result-badge.incorrect { color: #e74c3c; background: #fdf0ef; }
+
+/* explanation */
+.explanation {
+  margin-top: 16px;
+  padding: 16px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border-left: 4px solid #4a90d9;
+}
+.explanation-header {
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-size: .95rem;
+  color: #4a90d9;
+}
+.explanation .tiptap-readonly { outline: none; }
+
+/* demo mode blur */
+.explanation-demo { position: relative; overflow: hidden; }
+.explanation-blurred {
+  filter: blur(5px);
+  user-select: none;
+  pointer-events: none;
+}
+.demo-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,.7);
+  backdrop-filter: blur(2px);
+  border-radius: 8px;
+  text-align: center;
+  padding: 16px;
+}
+.demo-overlay p { font-weight: 500; margin-bottom: 12px; color: #333; }
+
+.btn-upgrade {
+  background: linear-gradient(135deg, #6c5ce7, #a55eea);
+  color: #fff;
+  padding: 10px 28px;
+  font-weight: 600;
+}
+.btn-upgrade:hover { background: linear-gradient(135deg, #5a4bd6, #9645e0); }
+
+.text-muted { color: #999; font-style: italic; }
+.render-error {
+  color: #e74c3c;
+  padding: 8px;
+  background: #fdf0ef;
+  border-radius: 4px;
+  font-size: .9rem;
+}
+.tiptap-readonly p { margin: .4em 0; }
